@@ -1,9 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:onceoff/pages/login_page.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class IntroPage extends StatelessWidget {
   const IntroPage({Key? key}) : super(key: key);
+
+
+
+  _launchURL(String url) async {
+    final uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -90,27 +102,42 @@ class IntroPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.end,
-                children: const [
-                  Text(
-                    'WEBSITE |',
-                    style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black54),
+                children: [
+                  InkWell(
+                    onTap: () {
+                      _launchURL('https://whatsappwithoutsavenumber.com');
+                    },
+                    child: const Text(
+                      'WEBSITE |',
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black54),
+                    ),
                   ),
-                  Text(
-                    'TERMS |',
-                    style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black54),
+                  InkWell(
+                    onTap: (){
+                      _launchURL('https://whatsappwithoutsavenumber.com/terms.html');
+                    },
+                    child: const Text(
+                      'TERMS |',
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black54),
+                    ),
                   ),
-                  Text(
-                    'POLICY',
-                    style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black54),
+                  InkWell(
+                    onTap: (){
+                      _launchURL('https://whatsappwithoutsavenumber.com/privacy.html');
+                    },
+                    child: const Text(
+                      'POLICY',
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black54),
+                    ),
                   ),
                 ],
               )

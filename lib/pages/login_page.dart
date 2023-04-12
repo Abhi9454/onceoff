@@ -18,6 +18,15 @@ class _LoginPageState extends State<LoginPage> {
 
   String phoneNumber = '';
 
+  _launchURL(String url) async {
+    final uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   showAlertDialog(BuildContext context) {
 
     // set up the button
@@ -154,26 +163,26 @@ class _LoginPageState extends State<LoginPage> {
                       Text(
                         'We do not store any data or information with us.',
                         style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                            fontWeight: FontWeight.normal,
                             color: Colors.black),
                       ),
                       Text(
                         'Its local app in your mobile which is secure and safe.',
                         style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                            fontWeight: FontWeight.normal,
                             color: Colors.black),
                       ),
                       Text(
                         'To run our expenses, we only show ads once a while.',
                         style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                            fontWeight: FontWeight.normal,
                             color: Colors.black),
                       )
                     ],
-                    bullet: Icon(Icons.check_circle_outlined),
+                    bullet: Icon(Icons.check_circle_outlined, size: 12,),
                   ),
                 ],
               ),
@@ -181,27 +190,42 @@ class _LoginPageState extends State<LoginPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.end,
-              children: const [
-                Text(
-                  'WEBSITE |',
-                  style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black54),
+              children: [
+                InkWell(
+                  onTap: () {
+                    _launchURL('https://whatsappwithoutsavenumber.com');
+                  },
+                  child: const Text(
+                    'WEBSITE |',
+                    style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black54),
+                  ),
                 ),
-                Text(
-                  'TERMS |',
-                  style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black54),
+                InkWell(
+                  onTap: (){
+                    _launchURL('https://whatsappwithoutsavenumber.com/terms.html');
+                  },
+                  child: const Text(
+                    'TERMS |',
+                    style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black54),
+                  ),
                 ),
-                Text(
-                  'POLICY',
-                  style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black54),
+                InkWell(
+                  onTap: (){
+                    _launchURL('https://whatsappwithoutsavenumber.com/privacy.html');
+                  },
+                  child: const Text(
+                    'POLICY',
+                    style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black54),
+                  ),
                 ),
               ],
             )
