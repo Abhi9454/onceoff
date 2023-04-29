@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "199689030743",
+    "project_id": "onceoff-1a7a1",
+    "storage_bucket": "onceoff-1a7a1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:199689030743:android:cb7a5b385b7fdf70d5a712",
+        "android_client_info": {
+          "package_name": "com.bootpsider.onceoffwa.onceoff"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "199689030743-9qfrc9fuhaj5q5an1lqccnr8v2dc7jme.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPlIoN7eHN0IzbcWj4er0enGHYQ-6xHPo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "199689030743-9qfrc9fuhaj5q5an1lqccnr8v2dc7jme.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

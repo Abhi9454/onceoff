@@ -1,7 +1,16 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:onceoff/pages/intro_page.dart';
+import 'package:onceoff/pages/login_page.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  // iOS requires you run in release mode to test dynamic links ("flutter run --release").
+  await Firebase.initializeApp();
+  MobileAds.instance.initialize();
+
   runApp(const MyApp());
 }
 
